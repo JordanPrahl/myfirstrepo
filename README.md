@@ -1,6 +1,8 @@
 # myfirstrepo
 For bioinformatics class: *January 26, 2021*
 
+**Note** I'm basically only writing this part as a refresher for using markdown syntax.
+
 ## Description
 [Ben](https://github.com/biobenkj) recommended uploading our VCF filtering exercise to `myfirstrepo` repository as practice. 
 
