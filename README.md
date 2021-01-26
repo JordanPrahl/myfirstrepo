@@ -23,8 +23,16 @@ less -S chr20.RAW.vcf.gz
 ```
 ---
 ## Step 1: Filtering variants with low call rates
+```
+module load bbc/vcftools/vcftools-0.1.16
+module load bbc/htslib/htslib-1.10.2
+module load bbc/R/R-3.6.0/
 
+Rscript ../Rscripts/step1.Rscript
 
+vcftools --gzvcf chr20.RAW.vcf.gz --max-missing 0.1 --recode --stdout | bgzip -c > chr20.step1.vcf.gz
+tabix -p vcf chr20.step1.vcf.gz
+```
 ---
 ## Step 2: Exclude variants based on allele frequency
 
