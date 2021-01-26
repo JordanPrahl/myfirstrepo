@@ -49,9 +49,24 @@ vcftools --gzvcf chr20.step1.vcf.gz --freq2 --stdout | sed '1d' | awk '{print $2
 Rscript ../Rscripts/step2.Rscript 
 vcftools --gzvcf chr20.step1.vcf.gz --exclude-positions chr20.step1.filtered.txt --recode --stdout|bgzip -c > chr20.step2.vcf.gz
 ```
+
+
+**Question:** How many variants are filtered out?
+
 ---
 ## Step 3: Exclude individuals based on call rates
+```
+vcftools --gzvcf chr20.step2.vcf.gz --missing-indv --stdout > chr20.step2.missing.tsv
 
+vcftools --gzvcf chr20.step2.vcf.gz --remove chr20.step3.removeIndividuals.tsv --recode --stdout | bgzip -c > chr20.step3.vcf.gz
+```
+
+**Questions**
+1. What does each line in chr20.step2.missing.tsv represent?
+2. Can you sort this file based on the missing data rate?
+3. What individual has the highest missing data rate?
+4. How many individuals have a missing rate greater than 2%?
+5. Confirm that you excluded the individuals from the new file using zcat, cut, and wc. What command did you use?
 
 ---
 ## Step 4: Exclude individuals based on relatedness
