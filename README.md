@@ -21,10 +21,10 @@ cd prahl
 cp ../raw_data/chr20.RAW.vcf.gz .   
 less -S chr20.RAW.vcf.gz   
 ```
-Questions
-1. what chromosome are we working on
-2. The number of variants
-3. The number of individuals
+**Questions**
+1. What chromosome are we working on? **chr20**
+2. The number of variants? `zcat chr20.RAW.vcf.gz | grep -v '^#' | cut -1 | sort | uniq -c`= **49305 variants**
+3. The number of individuals? `zcat chr20.RAW.vcf.gz | grep '^#CHROM' | cut -10- | wc -w` = **108 individuals**
 
 ---
 ## Step 1: Filtering variants with low call rates
@@ -38,6 +38,9 @@ Rscript ../Rscripts/step1.Rscript
 vcftools --gzvcf chr20.RAW.vcf.gz --max-missing 0.1 --recode --stdout | bgzip -c > chr20.step1.vcf.gz
 tabix -p vcf chr20.step1.vcf.gz
 ```
+
+**Question:** How many variants have been removed? **30 variants removed**
+
 ---
 ## Step 2: Exclude variants based on allele frequency
 ```
