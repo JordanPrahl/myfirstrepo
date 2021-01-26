@@ -11,15 +11,14 @@ We will use **commands** to view and manipulate data, such as:
 * `cut`
 
 ## Step 0: Log into the HPC and copy data into your directory
-`
-qsub -I -l walltime=5:00:00 -l nodes=1:ppn=1
+`qsub -I -l walltime=5:00:00 -l nodes=1:ppn=1`
 
-cd /primary/projects/training/session2/
-mkdir prahl
-cd prahl
-cp ../raw_data/chr20.RAW.vcf.gz .
-less -S chr20.RAW.vcf.gz
-`
+`cd /primary/projects/training/session2/`
+`mkdir prahl`
+`cd prahl`
+`cp ../raw_data/chr20.RAW.vcf.gz .`
+`less -S chr20.RAW.vcf.gz`
+
 ---
 ## Step 1: Filtering variants with low call rates
 
