@@ -1,3 +1,4 @@
+<h1>INTRO</h1>
 ## Filtering exercise from class on January 19, 2021
 ## In this exercise, we are provided access to a VCF file, which we copy to our own directories and manipulate. 
 ## We practice viewing, QCing, and filtering VCF files using commands such as grep, wc, zcat, & cut.
