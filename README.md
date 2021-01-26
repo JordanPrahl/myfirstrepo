@@ -1,5 +1,5 @@
 # myfirstrepo
-For bioinformatics class: January 26, 2021
+For bioinformatics class: *January 26, 2021*
 
 ## Description
 [Ben](https://github.com/biobenkj) recommended uploading our VCF filtering exercise to `myfirstrepo` repository as practice. 
