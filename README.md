@@ -21,6 +21,11 @@ cd prahl
 cp ../raw_data/chr20.RAW.vcf.gz .   
 less -S chr20.RAW.vcf.gz   
 ```
+Questions
+1. what chromosome are we working on
+2. The number of variants
+3. The number of individuals
+
 ---
 ## Step 1: Filtering variants with low call rates
 ```
