@@ -1,0 +1,14 @@
+## Filtering exercise from class on January 19, 2021
+## In this exercise, we are provided access to a VCF file, which we copy to our own directories and manipulate. 
+## We practice viewing, QCing, and filtering VCF files using commands such as grep, wc, zcat, & cut.
+
+# First we log into the VAI HPC and copy our data over to our own directory
+
+qsub -I -l walltime=5:00:00 -l nodes=1:ppn=1
+cd /primary/project/training/session2/
+mkdir prahl
+cd prahl
+
+cp ../raw_data/chr20.RAW.vcf.gz .
+
+less -S chr20.RAW.vcf.gz
