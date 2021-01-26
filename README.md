@@ -35,8 +35,12 @@ tabix -p vcf chr20.step1.vcf.gz
 ```
 ---
 ## Step 2: Exclude variants based on allele frequency
-
-
+```
+vcftools --gzvcf ../raw_data/reference/chr20.EUR.vcf.gz --freq2 --stdout|sed '1d'|awk '{print $2,$4,$5,$6}' > chr20.EUR.freq
+vcftools --gzvcf chr20.step1.vcf.gz --freq2 --stdout | sed '1d' | awk '{print $2,$4,$5,$6}' > chr20.step.freq
+Rscript ../Rscripts/step2.Rscript 
+vcftools --gzvcf chr20.step1.vcf.gz --exclude-positions chr20.step1.filtered.txt --recode --stdout|bgzip -c > chr20.step2.vcf.gz
+```
 ---
 ## Step 3: Exclude individuals based on call rates
 
