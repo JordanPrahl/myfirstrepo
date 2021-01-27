@@ -12,6 +12,10 @@ We will use **commands** to view and manipulate data, such as:
 * `wc`
 * `cut`
 
+### Organization of files along the way
+
+
+---
 ## Step 0: Log into the HPC and copy data into your directory
 ```
 qsub -I -l walltime=5:00:00 -l nodes=1:ppn=1   
@@ -32,6 +36,8 @@ less -S chr20.RAW.vcf.gz
 module load bbc/vcftools/vcftools-0.1.16
 module load bbc/htslib/htslib-1.10.2
 module load bbc/R/R-3.6.0/
+
+vcftools --gzvcf chr20.RAW.vcf.gz --missing-site --stdout > chr20.RAW.missing.tsv
 
 Rscript ../Rscripts/step1.Rscript
 
