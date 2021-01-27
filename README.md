@@ -12,9 +12,6 @@ We will use **commands** to view and manipulate data, such as:
 * `wc`
 * `cut`
 
-### Organization of files along the way
-
-
 ---
 ## Step 0: Log into the HPC and copy data into your directory
 ```
