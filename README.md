@@ -51,6 +51,7 @@ vcftools --gzvcf ../raw_data/reference/chr20.EUR.vcf.gz --freq2 --stdout|sed '1d
 vcftools --gzvcf chr20.step1.vcf.gz --freq2 --stdout | sed '1d' | awk '{print $2,$4,$5,$6}' > chr20.step.freq
 Rscript ../Rscripts/step2.Rscript 
 vcftools --gzvcf chr20.step1.vcf.gz --exclude-positions chr20.step1.filtered.txt --recode --stdout|bgzip -c > chr20.step2.vcf.gz
+tabix -p vcf chr20.step2.vcf.gz
 ```
 
 
@@ -60,6 +61,8 @@ vcftools --gzvcf chr20.step1.vcf.gz --exclude-positions chr20.step1.filtered.txt
 ## Step 3: Exclude individuals based on call rates
 ```
 vcftools --gzvcf chr20.step2.vcf.gz --missing-indv --stdout > chr20.step2.missing.tsv
+
+### Missing code to generate chr20.step3.removeIndividuals.tsv
 
 vcftools --gzvcf chr20.step2.vcf.gz --remove chr20.step3.removeIndividuals.tsv --recode --stdout | bgzip -c > chr20.step3.vcf.gz
 
