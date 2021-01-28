@@ -23,9 +23,9 @@ cp ../raw_data/chr20.RAW.vcf.gz .
 less -S chr20.RAW.vcf.gz   
 ```
 **Questions**
-1. What chromosome are we working on? **chr20**
-2. The number of variants? `zcat chr20.RAW.vcf.gz | grep -v '^#' | cut -1 | sort | uniq -c`= **49305 variants**
-3. The number of individuals? `zcat chr20.RAW.vcf.gz | grep '^#CHROM' | cut -10- | wc -w` = **108 individuals**
+1. What chromosome are we working on? `zcat chr20.RAW.vcf.gz | grep -v '^#' | cut -f1 | sort | uniq`= **chr20**
+2. The number of variants? `zcat chr20.RAW.vcf.gz | grep -v '^#' | wc -1`= **49305 variants**
+3. The number of individuals? `zcat chr20.RAW.vcf.gz | grep '^#CHROM' | cut -f10- | wc -w` = **108 individuals**
 
 ---
 ## Step 1: Filtering variants with low call rates
